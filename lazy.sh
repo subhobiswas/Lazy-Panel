@@ -2,6 +2,18 @@
 echo "#################################################################\n"
 echo "#                    Welcome to lazy script                     #\n"
 echo "#################################################################\n"
+# Check if script is being run by root
+if [[ $EUID -ne 0 ]]; then
+   printf "This script must be run as root!\n"
+   exit 1
+fi
+
+DIVIDER="\n***************************************\n\n"
+
+# Welcome and instructions
+printf $DIVIDER
+printf "It will take a few minits to complate all the installation \n"
+printf $DIVIDER
 sudo apt-get upadate
 sudo apt-get upgrade -y
 #PHP7 PPA
