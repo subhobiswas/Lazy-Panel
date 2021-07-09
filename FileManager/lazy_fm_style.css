@@ -1,0 +1,26 @@
+.btn-success{
+    color: #fff !important;
+    background-color: #198754;
+    border-color: #198754;
+}
+.btn
+{
+    border-radius: .10rem;
+    transition: color .15s
+}
+.btn-primary
+{
+    color: #fff;
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+}
+.btn-danger
+{
+    color: #fff;
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
+.jstree-icon{
+    height: 105px !important;
+    width: 50px;
+}
