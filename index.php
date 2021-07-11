@@ -8,7 +8,7 @@ if (isset($_POST['submit'])) {
         header('location:main.php');
     }
     else{
-        $error='<div class="alert alert-danger">Wrong username or password</div>';
+        $error='<div class="alert alert-danger m-2">Wrong username or password</div>';
     }
 }
 
@@ -49,6 +49,7 @@ if (isset($_POST['submit'])) {
             <div class="card-title">
                 <h1 class="text-center" style="font-weight:bold;size:35px">Lazy</h1>
             </div>
+            <?php echo (isset($error)) ? $error : ''; ?>
             <hr class="sidebar-divider my-0">
             <div class="card-body">
                 <form method="POST" action="">
