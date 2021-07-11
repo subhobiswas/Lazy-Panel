@@ -18,3 +18,8 @@ function auth()
         return false;
     }
 }
+function logout()
+{
+    session_destroy();
+    return true;
+}
