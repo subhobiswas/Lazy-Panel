@@ -48,32 +48,24 @@
 
             <!-- Heading -->
             <div class="sidebar-heading">
-                apache options
+                Apache Options
             </div>
 
             <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item <?php ActiveMenu('main.php'); ?>">
-                <a class="nav-link" href="main.php">
+            <li class="nav-item <?php ActiveMenu('ManageServer.php'); ?>">
+                <a class="nav-link" href="ManageServer.php">
                     <i class="fas fa-fw fa-cog"></i>
                     <span>Manage Servers</span>
                 </a>
             </li>
-
-            <!-- Nav Item - Utilities Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
-                    <i class="fas fa-fw fa-wrench"></i>
-                    <span>Utilities</span>
+            <div class="sidebar-heading">
+                Files
+            </div>
+            <li class="nav-item <?php ActiveMenu('ManageServer.php'); ?>">
+                <a class="nav-link" href="FileManager/index.php" target="_blank">
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span>File Manager</span>
                 </a>
-                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Custom Utilities:</h6>
-                        <a class="collapse-item" href="utilities-color.html">Colors</a>
-                        <a class="collapse-item" href="utilities-border.html">Borders</a>
-                        <a class="collapse-item" href="utilities-animation.html">Animations</a>
-                        <a class="collapse-item" href="utilities-other.html">Other</a>
-                    </div>
-                </div>
             </li>
 
             <!-- Divider -->
