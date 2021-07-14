@@ -1,10 +1,26 @@
 #!/bin/bash
 clear
-printf "#################################################################\n"
-printf "#                                                               #\n"
-printf "#                    Welcome to Lazy Panel                      #\n"
-printf "#                                                               #\n"
-printf "#################################################################\n"
+if [ "$EUID" -ne 0 ]
+  then echo "Please run Lazy Script as root"
+  exit
+fi
+
+clear
+
+echo -e '\n'
+echo '+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++'
+echo '+                                                                 +'
+echo '+   _|               |-|           |_|_|_|_|_    _|         |_    +'
+echo '+   _|             _|   |_                _|      _|       |_     +'
+echo '+   _|            _|_|_|_||_            _|          |_|_|_|       +'
+echo '+   _|          _|          |_        _|              |_|         +'
+echo '+   _|_|_|_|   _|            |_     _|_|_|_|_|        |_|         +'
+echo '+                                                                 +'
+echo '+                                                                 +'
+echo '+                                     Lazy Web Control Panel      +'
+echo '+                                            version : 1.0.0      +'
+echo '+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++'
+echo -e "\n\n"
 echo -n "Do you wish to continue? [Y/n]: "
 
 read continue
@@ -18,7 +34,7 @@ if [[ $EUID -ne 0 ]]; then
    printf "This script must be run as root!\n"
    exit 1
 fi
-##############################################################################
+################################################################################
 DIVIDER="\n***************************************\n\n"
 ################################################################################
 # setup passwor
@@ -44,9 +60,7 @@ sudo add-apt-repository ppa:ondrej/php
 sudo apt-get update
 ################################################################################
 #Apache, Php, MySQL and required packages installation
-sudo apt-get -y install apache2 php7.4 libapache2-mod-php7.4 php7.4-mcrypt php7.4-curl php7.4-mysql php7.4-gd php7.4-cli php7.4-dev mysql-client
-sudo apt-get install php7.4-xml
-sudo apt-get install php7.4-zip -y
+sudo apt-get -y install apache2 php7.4 libapache2-mod-php7.4 php7.4-mcrypt php7.4-curl php7.4-mysql php7.4-gd php7.4-cli php7.4-dev mysql-client php7.4-xml php7.4-zip -y
 pear install File_Archive
 #this is another package
 sudo pecl install mcrypt-1.0.2
@@ -80,6 +94,7 @@ else
       DocumentRoot "/var/www/lazy/"
    </VirtualHost>' >'/etc/apache2/sites-available/lazy.conf'
    sudo a2ensite lazy
+   sudo service apache2 restart
    printf "\n"
    echo "
    <?php
