@@ -1,7 +1,7 @@
 <?php
 function login($username, $password)
 {
-    if ($username == 'admin' && $password == 'secrat') {
+    if ($username == LAZY_USER && $password == LAZY_PASSWORD) {
         session_start();
         $_SESSION['login'] = true;
         return true;
@@ -20,6 +20,8 @@ function auth()
 }
 function logout()
 {
+    session_start();
     session_destroy();
     return true;
+    header('location:' . $_SERVER['DOCUMENT_ROOT']);
 }
