@@ -4,9 +4,7 @@ if [ "$EUID" -ne 0 ]
   then echo "Please run Lazy Script as root"
   exit
 fi
-
 clear
-
 echo -e '\n'
 echo '+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++'
 echo '+                                                                 +'
@@ -28,14 +26,6 @@ read continue
 case $continue in
 n* | N*) exit ;;
 esac
-################################################################################
-# Check if script is being run by root
-if [[ $EUID -ne 0 ]]; then
-   printf "This script must be run as root!\n"
-   exit 1
-fi
-################################################################################
-DIVIDER="\n***************************************\n\n"
 ################################################################################
 # setup passwor
 PASSWORD=$(openssl rand -base64 14)
@@ -98,8 +88,7 @@ else
    Listen '${ip_add[0]}':3000
    <VirtualHost '${ip_add[0]}':3000>
       DocumentRoot "/var/www/lazy/"
-      ErrorLog ${/var/www/lazy/logs/}/error.log
-      CustomLog ${/var/www/lazy/logs/}/access.log combined
+      ErrorLog /var/www/lazy/logs/error.log
    </VirtualHost>' >'/etc/apache2/sites-available/lazy.conf'
    
    sudo a2ensite lazy
@@ -110,7 +99,7 @@ else
    // this is main config page for lazy
    define('USERNAME','admin');
    define('PASSWORD','"${PASSWORD}"');" >"config.php"
-   rsync -a Lazy-Panel/ /var/www/lazy/
+   rsync -a / /var/www/lazy/
    clear
    printf "#################################################################\n"
    printf "#                                                                \n"

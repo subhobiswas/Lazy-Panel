@@ -1,7 +1,7 @@
 <?php
 function login($username, $password)
 {
-    if ($username == LAZY_USER && $password == LAZY_PASSWORD) {
+    if ($username == 'admin' && $password == 'secrat') {
         session_start();
         $_SESSION['login'] = true;
         return true;

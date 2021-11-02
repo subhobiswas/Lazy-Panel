@@ -5,4 +5,5 @@ echo '<br>';
 echo cpu();
 echo '<br>';
 echo disk();
+echo '<br>';
 echo os();
