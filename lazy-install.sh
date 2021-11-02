@@ -47,7 +47,7 @@ printf $DIVIDER
 printf "It will take a few minits to complate all the installation \n"
 printf $DIVIDER
 
-sleep(5)
+sleep 5
 ################################################################################
 # update repo
 sudo apt-get upadate
