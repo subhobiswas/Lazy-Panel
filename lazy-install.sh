@@ -46,6 +46,8 @@ DB_PASSWORD=$(openssl rand -base64 14)
 printf $DIVIDER
 printf "It will take a few minits to complate all the installation \n"
 printf $DIVIDER
+
+sleep(5)
 ################################################################################
 # update repo
 sudo apt-get upadate
@@ -87,12 +89,19 @@ else
    #configure v host for lazy ip:3000
    ip_add=($(hostname -I))
    declare -p ip_add
+   mkdir /var/www/lazy/
+   chmod 777 /var/www/lazy/
+   mkdir /var/www/lazy/logs/
+   chmod 777 /var/www/lazy/logs/
    echo '
    #configure v host for lazy ip:3000
    Listen '${ip_add[0]}':3000
    <VirtualHost '${ip_add[0]}':3000>
       DocumentRoot "/var/www/lazy/"
+      ErrorLog ${/var/www/lazy/logs/}/error.log
+      CustomLog ${/var/www/lazy/logs/}/access.log combined
    </VirtualHost>' >'/etc/apache2/sites-available/lazy.conf'
+   
    sudo a2ensite lazy
    sudo service apache2 restart
    printf "\n"
@@ -101,6 +110,7 @@ else
    // this is main config page for lazy
    define('USERNAME','admin');
    define('PASSWORD','"${PASSWORD}"');" >"config.php"
+   rsync -a Lazy-Panel/ /var/www/lazy/
    clear
    printf "#################################################################\n"
    printf "#                                                                \n"
