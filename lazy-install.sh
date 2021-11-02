@@ -1,14 +1,8 @@
 #!/bin/bash
 clear
-<<<<<<< Updated upstream
 if [ "$EUID" -ne 0 ]
   then echo "Please run Lazy Script as root"
   exit
-=======
-if [ "$EUID" -ne 0 ]; then
-   echo "Please run Lazy Script as root"
-   exit
->>>>>>> Stashed changes
 fi
 
 clear
@@ -52,11 +46,6 @@ DB_PASSWORD=$(openssl rand -base64 14)
 printf $DIVIDER
 printf "It will take a few minits to complate all the installation \n"
 printf $DIVIDER
-<<<<<<< Updated upstream
-=======
-sleep 5
-
->>>>>>> Stashed changes
 ################################################################################
 # update repo
 sudo apt-get upadate
@@ -96,13 +85,6 @@ if [ $? -ne 0 ]; then
    printf "Please Check the Install Services, There is some $(tput bold)$(tput setaf 1)Problem$(tput sgr0)"
 else
    #configure v host for lazy ip:3000
-<<<<<<< Updated upstream
-=======
-   mkdir /var/www/lazy/
-   chmod 777 /var/www/lazy/
-   mkdir /var/www/lazy/logs/
-   chmod 777 /var/www/lazy/logs/
->>>>>>> Stashed changes
    ip_add=($(hostname -I))
    declare -p ip_add
    echo '
@@ -110,18 +92,9 @@ else
    Listen '${ip_add[0]}':3000
    <VirtualHost '${ip_add[0]}':3000>
       DocumentRoot "/var/www/lazy/"
-<<<<<<< Updated upstream
    </VirtualHost>' >'/etc/apache2/sites-available/lazy.conf'
    sudo a2ensite lazy
    sudo service apache2 restart
-=======
-      ErrorLog ${/var/www/lazy/logs/}/error.log
-      CustomLog ${/var/www/lazy/logs/}/access.log combined
-   </VirtualHost>' >'/etc/apache2/sites-available/lazy.conf'
-   sudo a2ensite lazy
-   sudo service apache2 restart
-   rsync -a Lazy-Panel/ /var/www/lazy/
->>>>>>> Stashed changes
    printf "\n"
    echo "
    <?php
