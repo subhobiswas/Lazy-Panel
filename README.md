@@ -3,9 +3,10 @@
  
 ## Documentation
 
-* It is User Interface (UI) bassed web control Panel. Where you can Manage Your server  **(LAMP STACK)** by using UI
-* It has a Excelent File manager which you can use to manage your code
+* It is User Interface (UI) bassed web control Panel.
+* It has a Excelent File manager , phpMyAdmin , Terminal 
 * You can mange lots of thing like **DNS,Virtual Host,Restart Service** Many more
+* It bassed on LAMP STACK for linux server
 
 ## Requirements
 
