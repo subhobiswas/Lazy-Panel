@@ -14,8 +14,6 @@
 
 ## Installation 
 
-How to install (4 step)
-----------------------------
 Connect to your server as root via SSH
 ```bash
 ssh root@your.server
