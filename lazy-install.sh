@@ -106,10 +106,12 @@ else
    // this is main config page for lazy
    define('USERNAME','admin');
    define('PASSWORD','"${PASSWORD}"');
-   define('LAZY_FM_PATH','/var/www/lazy/);" > "config.php"
+   define('LAZY_FM_PATH','/var/www/lazy/');" > "config.php"
    
    
   cp -r * /var/www/lazy
+  chown www-data -R /var/www/html
+  
    clear
    printf "#################################################################\n"
    printf "#                                                                \n"
