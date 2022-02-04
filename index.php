@@ -6,7 +6,7 @@ if (isset($_POST['submit'])) {
     $password = $_POST['password'];
     if(login($username,$password))
     {
-        header('location:main.php');
+        header('location:pages/main.php');
     }
     else{
         $error='<div class="alert alert-danger m-2">Wrong username or password</div>';

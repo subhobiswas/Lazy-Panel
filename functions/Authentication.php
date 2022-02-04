@@ -1,7 +1,8 @@
 <?php
 function login($username, $password)
 {
-    if ($username == 'admin' && $password == 'secrat') {
+    include '../config.php';
+    if ($username == 'admin' && $password == PASSWORD ) {
         session_start();
         $_SESSION['login'] = true;
         return true;

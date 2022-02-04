@@ -1,4 +1,4 @@
-<?php include 'includes.php'; ?>
+<?php include '../includes.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,10 +11,10 @@
     <meta name="author" content="Subho Biswas">
     <title>Lazy Panel | Admin</title>
     <!-- Custom fonts for this template-->
-    <link href="assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="../assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
     <!-- Custom styles for this template-->
-    <link href="assets/css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="../assets/css/sb-admin-2.min.css" rel="stylesheet">
 </head>
 
 <body id="page-top">
@@ -63,7 +63,7 @@
                 Files
             </div>
             <li class="nav-item <?php ActiveMenu('ManageServer.php'); ?>">
-                <a class="nav-link" href="FileManager/index.php" target="_blank">
+                <a class="nav-link" href="../FileManager/index.php" target="_blank">
                     <i class="fas fa-fw fa-cog"></i>
                     <span>File Manager</span>
                 </a>
@@ -73,7 +73,7 @@
                 Database
             </div>
             <li class="nav-item">
-                <a class="nav-link" href="phpMyAdmin/" target="_blank">
+                <a class="nav-link" href="../phpMyAdmin/" target="_blank">
                     <i class="fas fa-fw fa-cog"></i>
                     <span>phpMyAdmin</span>
                 </a>

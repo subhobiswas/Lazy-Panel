@@ -58,6 +58,11 @@ pear install File_Archive
 sudo pecl install mcrypt-1.0.2
 ################################################################################
 #The following commands set the MySQL root password to MYPASSWORD123 when you install the mysql-server package.
+
+#Genarate password
+DB_PASSWORD=$(openssl rand -base64 16)
+PASSWORD=$(openssl rand -base64 16)
+
 sudo debconf-set-selections <<<'mysql-server mysql-server/root_password password '${DB_PASSWORD}
 sudo debconf-set-selections <<<'mysql-server mysql-server/root_password_again password '${DB_PASSWORD}
 ################################################################################
@@ -98,16 +103,19 @@ else
    <?php
    // this is main config page for lazy
    define('USERNAME','admin');
-   define('PASSWORD','"${PASSWORD}"');" >"config.php"
+   define('PASSWORD','"${PASSWORD}"');
+   define('LAZY_FM_PATH','/var/www/lazy/);" > "config.php"
+   
+   
    rsync -a / /var/www/lazy/
    clear
    printf "#################################################################\n"
    printf "#                                                                \n"
-   printf "#                Lazy Panel Is Installed Successfully             \n"
+   printf "#                Lazy Panel Is Installed Successfully            \n"
    printf "#                                                                \n"
    printf "#                    server - http://${ip_add[0]}:3000           \n"
    printf "#                    username - admin                            \n"
-   printf "#                    username - $PASSWORD                        \n"
+   printf "#                    Password - $PASSWORD                        \n"
    printf "#                    MySql User - root                           \n"
    printf "#                    MySql Password - $DB_PASSWORD               \n"
    printf "#                                                                \n"
