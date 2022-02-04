@@ -33,9 +33,8 @@ USERNAME='admin'
 DB_PASSWORD=$(openssl rand -base64 14)
 ################################################################################
 # Welcome and instructions
-printf $DIVIDER
-printf "It will take a few minits to complate all the installation \n"
-printf $DIVIDER
+echo "It will take a few minits to complate all the installation \n"
+
 
 sleep 5
 ################################################################################
@@ -46,10 +45,12 @@ sudo apt-get upgrade -y
 #PHP7.4 PPA
 sudo apt-get install software-properties-common
 sudo apt-get install python-software-properties
-sudo add-apt-repository ppa:ondrej/php
+sudo add-apt-repository ppa:ondrej/apache2 -y
+sudo add-apt-repository ppa:ondrej/php -y
 ################################################################################
 #Update the repositories
 sudo apt-get update
+sudo apt-get install -y php7.4
 ################################################################################
 #Apache, Php, MySQL and required packages installation
 sudo apt-get -y install apache2 php7.4 libapache2-mod-php7.4 php7.4-mcrypt php7.4-curl php7.4-mysql php7.4-gd php7.4-cli php7.4-dev mysql-client php7.4-xml php7.4-zip -y
@@ -97,6 +98,7 @@ else
    </VirtualHost>' >'/etc/apache2/sites-available/lazy.conf'
    
    sudo a2ensite lazy
+   systemctl reload apache2
    sudo service apache2 restart
    printf "\n"
    echo "
@@ -107,7 +109,7 @@ else
    define('LAZY_FM_PATH','/var/www/lazy/);" > "config.php"
    
    
-   rsync -a / /var/www/lazy/
+  cp -r * /var/www/lazy
    clear
    printf "#################################################################\n"
    printf "#                                                                \n"
