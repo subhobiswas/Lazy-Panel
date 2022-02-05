@@ -1,4 +1,5 @@
-<?php include 'header.php';
+<?php 
+include 'header.php';
 $disk=disk();
 $os=os();
 ?>
@@ -59,8 +60,10 @@ $os=os();
 						<i class="fa fa-twitter fa-5x"></i>
 					</div>
 					<h6 class="text-light m-2">DISK</h6>
-					<p class="display-1 text-light m-2">OS : <?php $os['name'] ?></p>
-					<p class="display-1 text-light m-2">VERSION : <?php $os['version'] ?></p>
+					<p class="text-light m-2">TOTAL : <?php echo formatSizeUnits($disk['total']); ?></p>
+					<p class="text-light m-2">FREE : <?php echo formatSizeUnits($disk['free']); ?></p>
+					<p class="text-light m-2">USEG : <?php echo formatSizeUnits($disk['useg']); ?></p>
+
 				</div>
 			</div>
 		</div>
@@ -70,8 +73,10 @@ $os=os();
 					<div class="rotate">
 						<i class="fa fa-share fa-5x"></i>
 					</div>
-					<h6 class="text-uppercase">OS INFO</h6>
-					<p class="display-1 text-light m-2">USAGE : <?php formatSizeUnits($disk['useg']) ?></p>
+					<h6 class="text-light m-2">OS INFO</h6>
+					<p class="text-light m-2">OS : <?php echo $os['name']; ?></p>
+					<p class="text-light m-2">VERSION : <?php echo $os['version']; ?></p>
+
 				</div>
 			</div>
 		</div>
