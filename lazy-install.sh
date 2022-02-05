@@ -56,8 +56,8 @@ sudo apt-get -y install apache2 php7.4 libapache2-mod-php7.4 php7.4-mcrypt php7.
 pear install File_Archive
 #this is another package
 sudo pecl install mcrypt-1.0.2
-sudo apt-get install libapache2-mod-php7.4
-sudo apt-get install php7.4-mbstring
+sudo apt-get install libapache2-mod-php7.4 -y
+sudo apt-get install php7.4-mbstring -y
 ################################################################################
 #The following commands set the MySQL root password to MYPASSWORD123 when you install the mysql-server package.
 
