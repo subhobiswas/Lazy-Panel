@@ -1,6 +1,7 @@
 <?php
 include '../config.php';
 include '../functions/Authentication.php';
+auth();
 if (!defined('FM_SESSION_ID')) {
     define('FM_SESSION_ID', 'filemanager');
 }

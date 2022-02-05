@@ -1,8 +1,8 @@
 #!/bin/bash
 clear
-if [ "$EUID" -ne 0 ]
-  then echo "Please run Lazy Script as root"
-  exit
+if [ "$EUID" -ne 0 ]; then
+   echo "Please run Lazy Script as root"
+   exit
 fi
 clear
 echo -e '\n'
@@ -33,8 +33,7 @@ USERNAME='admin'
 DB_PASSWORD=$(openssl rand -base64 14)
 ################################################################################
 # Welcome and instructions
-echo "It will take a few minits to complate all the installation \n"
-
+echo "It will take a few minits to complate all the installation "
 
 sleep 5
 ################################################################################
@@ -44,12 +43,12 @@ sudo apt-get upgrade -y
 ################################################################################
 #PHP7.4 PPA
 sudo apt-get install software-properties-common
-sudo apt-get install python-software-properties
 sudo add-apt-repository ppa:ondrej/apache2 -y
 sudo add-apt-repository ppa:ondrej/php -y
 ################################################################################
 #Update the repositories
 sudo apt-get update
+sudo apt-get upgrade -y
 sudo apt-get install -y php7.4
 ################################################################################
 #Apache, Php, MySQL and required packages installation
@@ -57,6 +56,8 @@ sudo apt-get -y install apache2 php7.4 libapache2-mod-php7.4 php7.4-mcrypt php7.
 pear install File_Archive
 #this is another package
 sudo pecl install mcrypt-1.0.2
+sudo apt-get install libapache2-mod-php7.4
+sudo apt-get install php7.4-mbstring
 ################################################################################
 #The following commands set the MySQL root password to MYPASSWORD123 when you install the mysql-server package.
 
@@ -89,29 +90,30 @@ else
    chmod 777 /var/www/lazy/
    mkdir /var/www/lazy/logs/
    chmod 777 /var/www/lazy/logs/
-   echo '
-   #configure v host for lazy ip:3000
-   Listen '${ip_add[0]}':3000
-   <VirtualHost '${ip_add[0]}':3000>
-      DocumentRoot "/var/www/lazy/"
-      ErrorLog /var/www/lazy/logs/error.log
-   </VirtualHost>' >'/etc/apache2/sites-available/lazy.conf'
-   
+echo '
+#configure v host for lazy ip:3000
+Listen '${ip_add[0]}':3000
+<VirtualHost '${ip_add[0]}':3000>
+   DocumentRoot "/var/www/lazy/"
+   ErrorLog /var/www/lazy/logs/error.log
+</VirtualHost>' >'/etc/apache2/sites-available/lazy.conf'
+
    sudo a2ensite lazy
    systemctl reload apache2
    sudo service apache2 restart
    printf "\n"
-   echo "
-   <?php
-   // this is main config page for lazy
-   define('USERNAME','admin');
-   define('PASSWORD','"${PASSWORD}"');
-   define('LAZY_FM_PATH','/var/www/lazy/');" > "config.php"
-   
-   
-  cp -r * /var/www/lazy
-  chown www-data -R /var/www/html
-  
+echo "
+<?php
+// this is main config page for lazy
+define('USERNAME','admin');
+define('PASSWORD','"${PASSWORD}"');
+define('LAZY_FM_PATH','/var/www/html/');" >"config.php"
+
+   cp -r * /var/www/lazy
+   chown www-data -R /var/www/html
+   chown www-data -R /var/www/lazy/phpMyAdmin/tmp
+   chmod 755 /var/www/lazy/phpMyAdmin/tmp
+
    clear
    printf "#################################################################\n"
    printf "#                                                                \n"

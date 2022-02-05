@@ -16,13 +16,12 @@ function auth()
     if (isset($_SESSION['login']) && $_SESSION['login'] == true) {
         return true;
     } else {
-        return false;
+        logout();
     }
 }
 function logout()
 {
     session_start();
     session_destroy();
-    return true;
     header('location:' . $_SERVER['DOCUMENT_ROOT']);
 }
