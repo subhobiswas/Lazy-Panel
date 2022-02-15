@@ -38,7 +38,7 @@ $os=os();
 						<i class="fa fa-user fa-5x"></i>
 					</div>
 					<h6 class="text-light m-2" >RAM</h6>
-					<h1 class="display-1 text-light m-2"><?php ram() ?></h1>
+					<h2 class="display-3 text-light m-2"><?php echo ram(); ?></h2>
 				</div>
 			</div>
 		</div>
@@ -49,7 +49,7 @@ $os=os();
 						<i class="fa fa-list fa-4x"></i>
 					</div>
 					<h6 class="text-light m-2">CPU</h6>
-					<h1 class="display-1 text-light m-2"><?php cpu() ?></h1>
+					<h1 class="display-3 text-light m-2"><?php echo cpu(); ?></h1>
 				</div>
 			</div>
 		</div>
@@ -76,7 +76,7 @@ $os=os();
 					<h6 class="text-light m-2">OS INFO</h6>
 					<p class="text-light m-2">OS : <?php echo $os['name']; ?></p>
 					<p class="text-light m-2">VERSION : <?php echo $os['version']; ?></p>
-
+					<p class="text-light m-2">DESTRO : <?php echo $os['id_like']; ?></p>
 				</div>
 			</div>
 		</div>
