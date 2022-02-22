@@ -78,7 +78,7 @@ auth();
                 Database
             </div>
             <li class="nav-item">
-                <a class="nav-link" href="../phpMyAdmin/" target="_blank">
+                <a class="nav-link" href="Database.php" target="_blank">
                     <i class="fas fa-database"></i>
                     <span>phpMyAdmin</span>
                 </a>

@@ -90,7 +90,8 @@ else
    chmod 777 /var/www/lazy/
    mkdir /var/www/lazy/logs/
    chmod 777 /var/www/lazy/logs/
-echo '
+
+   echo '
 #configure v host for lazy ip:3000
 Listen '${ip_add[0]}':3000
 <VirtualHost '${ip_add[0]}':3000>
@@ -102,14 +103,17 @@ Listen '${ip_add[0]}':3000
    systemctl reload apache2
    sudo service apache2 restart
    printf "\n"
-echo "
+   echo "
 <?php
 // this is main config page for lazy
 define('USERNAME','admin');
 define('PASSWORD','"${PASSWORD}"');
-define('LAZY_FM_PATH','/var/www/html/');" >"config.php"
+define('LAZY_FM_PATH','/var/www/html/');
+define('BACKUP_DIR','/var/www/lazy/backup/');" >"config.php"
 
    cp -r * /var/www/lazy
+   mkdir /var/www/lazy/backup
+   chmod 755 /var/www/lazy/backup
    chown www-data -R /var/www/html
    chown www-data -R /var/www/lazy/phpMyAdmin/tmp
    chmod 755 /var/www/lazy/phpMyAdmin/tmp
