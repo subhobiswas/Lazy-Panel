@@ -57,7 +57,7 @@ auth();
             </div>
 
             <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item <?php ActiveMenu('ManageServer.php'); ?>">
+            <li class="nav-item <?php ActiveMenu(array('ManageServer.php')); ?>">
                 <a class="nav-link" href="ManageServer.php">
                     <i class="fas fa-server"></i>
                     <span>Manage Servers</span>
@@ -67,7 +67,7 @@ auth();
             <div class="sidebar-heading">
                 Files
             </div>
-            <li class="nav-item <?php ActiveMenu('ManageServer.php'); ?>">
+            <li class="nav-item">
                 <a class="nav-link" href="../FileManager/index.php" target="_blank">
                     <i class="fas fa-folder-open"></i>
                     <span>File Manager</span>
@@ -78,7 +78,7 @@ auth();
                 Database
             </div>
             <li class="nav-item">
-                <a class="nav-link" href="Database.php" target="_blank">
+                <a class="nav-link" href="/phpMyAdmin" target="_blank">
                     <i class="fas fa-database"></i>
                     <span>phpMyAdmin</span>
                 </a>
@@ -87,8 +87,8 @@ auth();
             <div class="sidebar-heading">
                 Backup
             </div>
-            <li class="nav-item">
-                <a class="nav-link" href="phpMyadmin/" target="_blank">
+            <li class="nav-item  <?php ActiveMenu(array('backup.php')); ?>">
+                <a class="nav-link" href="backup.php" target="">
                     <i class="fas fa-cloud"></i>
                     <span>Backup</span>
                 </a>
