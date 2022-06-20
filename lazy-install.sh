@@ -113,6 +113,7 @@ define('BACKUP_DIR','/var/www/lazy/backup/');" >"config.php"
 
    cp -r * /var/www/lazy
    mkdir /var/www/lazy/backup
+   chown www-data -R /var/www/lazy/backup
    chmod 755 /var/www/lazy/backup
    chown www-data -R /var/www/html
    chown www-data -R /var/www/lazy/phpMyAdmin/tmp
