@@ -28,7 +28,7 @@ if ($handle = opendir('../backup')) {
                     echo '<td>' . $i++ . '</td>';
                     echo '<td>' . date("F d Y H:i:s.", filemtime('../backup/' . $file)) . '</td>';
                     echo '<td><a href="../backup/' . $file . '" class="btn btn-success">Download</a></td>';
-                    echo '<td><button class="btn btn-danger" onclick=delete_backup("' . $file . '")>Delete</button></td>';
+                    echo '<td><button type="button" value="' . $file . '" class="btn btn-danger del_file">Delete</button></td>';
                     echo '</tr>';
                 }
             } else {
@@ -43,13 +43,14 @@ if ($handle = opendir('../backup')) {
 <?php include 'footer.php'; ?>
 
 <script>
-    function delete_backup(file) {
+    $('.del_file').click(function() {
+        var file = $('.del_file').val();
         $.ajax({
             type: "method",
             url: "Ajax.php?action=delete_backup&file=" + file,
-            success: function(response) {
+            complete: function(response) {
                 $('#tbody').html(response);
             }
         });
-    }
+    })
 </script>

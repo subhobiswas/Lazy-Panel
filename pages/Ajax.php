@@ -20,8 +20,7 @@ switch ($action) {
                 echo '<td>' . $i++ . '</td>';
                 echo '<td>' . date("F d Y H:i:s.", filemtime('../backup/' . $file)) . '</td>';
                 echo '<td><a href="../backup/' . $file . '" class="btn btn-success">Download</a></td>';
-                echo '<td><button class="btn btn-danger" onclick=delete_backup("' . $file . '")>Delete</button></td>';
-                echo '</tr>';
+                echo '<td><button type="button" value="' . $file . '" class="btn btn-danger del_file">Delete</button></td>';                echo '</tr>';
             }
         } else {
             echo '<tr>';

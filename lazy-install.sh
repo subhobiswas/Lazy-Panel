@@ -119,6 +119,11 @@ define('BACKUP_DIR','/var/www/lazy/backup/');" >"config.php"
    chown www-data -R /var/www/lazy/phpMyAdmin/tmp
    chmod 755 /var/www/lazy/phpMyAdmin/tmp
 
+   sudo crontab -l 2>cron_bkp
+   sudo echo "0 18 * * * php /var/www/lazy/functions/Backup.php" >>cron_bkp
+   sudo crontab cron_bkp
+   sudo rm cron_bkp
+
    clear
    printf "#################################################################\n"
    printf "#                                                                \n"
