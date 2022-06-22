@@ -1,5 +1,5 @@
 <?php
-require_once '../config.php';
+include 'var/www/lazy/config.php';
 ini_set('max_execution_time', '300');
 ini_set('set_time_limit', '0');
 try {
